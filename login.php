@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>IRON MAN  - Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
@@ -21,15 +21,14 @@
         justify-content: center;
         align-items: center;
     }
-
 </style>
 
 <body>
     <div class="main">
         <div class="container">
-            <h2 class="text-center text-white">Login Form</h2>
+            <h2 class="text-center text-white">Iron Man Login</h2>
             <form id="loginForm">
-                <div class="row mt-5  d-flex justify-content-center">
+                <div class="row mt-3  d-flex justify-content-center">
                     <div class="col-md-4 bg-white m-5 p-4 rounded-3">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -41,7 +40,9 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                             <small class="text-danger d-none" id="passwordError">Password must be at least 6 characters.</small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary ">Login</button>
+                        </div>
                     </div>
                 </div>
             </form>
