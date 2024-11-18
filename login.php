@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+    <title>IRON MAN - Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
@@ -21,20 +21,56 @@
         justify-content: center;
         align-items: center;
     }
+<<<<<<< HEAD
   
     
        
     
 
+=======
+>>>>>>> b3769e0015c04010fc598eab400af949d820082d
 </style>
 
 <body>
     <div class="main">
         <div class="container">
+<<<<<<< HEAD
             <h1 class="text-center text-black   font-size: 3rem;
         text-align: center; mt-3; ">Login Form</h1>
             <form id="loginForm">
                 <div class="row mt-5  d-flex justify-content-center">
+=======
+            <?php
+
+            include("common/connection.php");
+
+
+                
+                if(isset($_POST['submit'])){
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+
+                    $check = "SELECT * FROM admin WHERE email = '$email';";
+                    $check_result = mysqli_query($conn, $check);
+                    if(mysqli_num_rows($check_result)){
+                        $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password';";
+                        $result = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($result)){
+                            header("Location: index.php");
+                        }else{
+                            echo "Incorrect password.";
+                        }
+
+                    }
+
+                }
+
+
+            ?>
+            <h2 class="text-center text-white">Iron Man Login</h2>
+            <form action="login.php" method="post">
+                <div class="row mt-3  d-flex justify-content-center">
+>>>>>>> b3769e0015c04010fc598eab400af949d820082d
                     <div class="col-md-4 bg-white m-5 p-4 rounded-3">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
@@ -46,7 +82,9 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                             <small class="text-danger d-none" id="passwordError">Password must be at least 6 characters.</small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="col-md-12 d-flex justify-content-center mt-5">
+                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+                        </div>
                     </div>
                 </div>
             </form>
