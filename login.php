@@ -21,13 +21,18 @@
         justify-content: center;
         align-items: center;
     }
+  
+    
+       
+    
 
 </style>
 
 <body>
     <div class="main">
         <div class="container">
-            <h2 class="text-center text-white">Login Form</h2>
+            <h1 class="text-center text-black   font-size: 3rem;
+        text-align: center; mt-3; ">Login Form</h1>
             <form id="loginForm">
                 <div class="row mt-5  d-flex justify-content-center">
                     <div class="col-md-4 bg-white m-5 p-4 rounded-3">
@@ -50,6 +55,7 @@
     </div>
 
     <script src="assets/js/login_js/script.js"></script>
+    
 
 </body>
 
