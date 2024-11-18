@@ -2,83 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRON MAN - Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
 </head>
 
-<style>
-    .main {
-        width: 100%;
-        height: 100vh;
-        background-image: url(assets/images/login-img.jpeg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-
 <body>
-    <div class="main">
-        <div class="container">
-            <?php
+    <?php
 
-            include("common/connection.php");
+    include("common/connection.php");
 
 
-                
-                if(isset($_POST['submit'])){
-                    $email = $_POST['email'];
-                    $password = $_POST['password'];
 
-                    $check = "SELECT * FROM admin WHERE email = '$email';";
-                    $check_result = mysqli_query($conn, $check);
-                    if(mysqli_num_rows($check_result)){
-                        $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password';";
-                        $result = mysqli_query($conn, $sql);
-                        if(mysqli_num_rows($result)){
-                            header("Location: index.php");
-                        }else{
-                            echo "Incorrect password.";
-                        }
+    if (isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-                    }
-
-                }
+        $check = "SELECT * FROM admin WHERE email = '$email';";
+        $check_result = mysqli_query($conn, $check);
+        if (mysqli_num_rows($check_result)) {
+            $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password';";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result)) {
+                header("Location: index.php");
+            } else {
+                echo "Incorrect password.";
+            }
+        }
+    }
 
 
-            ?>
-            <h2 class="text-center text-white">Iron Man Login</h2>
-            <form action="login" method="post">
-                <div class="row mt-3  d-flex justify-content-center">
-                    <div class="col-md-4 bg-white m-5 p-4 rounded-3">
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                            <small class="text-danger d-none" id="emailError">Please enter a valid email.</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
-                            <small class="text-danger d-none" id="passwordError">Password must be at least 6 characters.</small>
-                        </div>
-                        <div class="col-md-12 d-flex justify-content-center mt-5">
-                            <button type="submit" class="btn btn-primary" name="submit">Login</button>
+    ?>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="row w-100">
+                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                    <div class="card col-lg-4 mx-auto">
+                        <div class="card-body px-5 py-5">
+                            <h3 class="card-title text-center mb-3">Login</h3>
+                            <form action="login.php" method="post">
+                                <div class="form-group">
+                                    <label>Email </label>
+                                    <input type="text" name="email" class="form-control p_input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password </label>
+                                    <input type="text" name="password" class="form-control p_input">
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between">
+                                    
+                                    <a href="#" class="forgot-pass">Forgot password</a>
+                                </div>
+                                <div class="text-center d-grid gap-2">
+                                    <button type="submit" name="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                                </div>
+                                
+                            </form>
                         </div>
                     </div>
                 </div>
-            </form>
+                <!-- content-wrapper ends -->
+            </div>
+            <!-- row ends -->
         </div>
-
+        <!-- page-body-wrapper ends -->
     </div>
-
-    <script src="assets/js/login_js/script.js"></script>
-
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
 </body>
 
 </html>
