@@ -32,10 +32,10 @@
   <body>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="/assets/images/logo.svg" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="/assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="text-decoration-none text-white sidebar-brand brand-logo" href="index.html">
+          IRON MAN</a>
         </div>
-        <ul class="nav">
+        <ul class="nav position-fixed">
           <li class="nav-item profile">
             <div class="profile-desc">
               <div class="profile-pic">
@@ -99,20 +99,20 @@
         
         
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="#">
               <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
+                <i class="mdi mdi-tshirt-crew"></i>
               </span>
-              <span class="menu-title">Tables</span>
+              <span class="menu-title">Add Cloths</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="pages/charts/chartjs.html">
               <span class="menu-icon">
-                <i class="mdi mdi-chart-bar"></i>
+                <i class="mdi mdi-tshirt-v-outline"></i>
               </span>
-              <span class="menu-title">Charts</span>
+              <span class="menu-title">Pending Cloths</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
@@ -192,7 +192,9 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a href="/logout.php" class="dropdown-item preview-item">
+
+
+                  <a href="logout.php" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>

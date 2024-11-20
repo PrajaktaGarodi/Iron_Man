@@ -7,4 +7,4 @@ header("Location: /login.php"); // Redirect to login page after logout
 
 ?>
 
-<a href="/login.php"></a>
+<!-- <a href="/login.php"></a> -->
