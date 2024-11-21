@@ -66,7 +66,7 @@
       <div class="content-wrapper">
 
         <div class="row">
-          <div class="col-md-6 grid-margin stretch-card">
+          <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">Add Cloths</h4>
