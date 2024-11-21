@@ -2,6 +2,19 @@
 
   include("connection.php");
 
+  session_start();
+  if(!isset($_SESSION['email']))
+  {
+    header('Location: /login.php');
+  }
+
+  $email = $_SESSION['email'];
+  $sql = "SELECT * FROM admin WHERE email = '$email';";
+  $check_result = mysqli_query($conn, $sql);
+ 
+  $result = mysqli_fetch_array($check_result);
+  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +57,8 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                  <span>Gold Member</span>
+                  <h5 class="mb-0 font-weight-normal"><?php $result['role'] ?></h5>
+                  <span><?php $result['email'] ?></span>
                 </div>
               </div>
               <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -174,7 +187,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="../../..//assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Henry Klein</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php $result['role'] ?></p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>

@@ -39,6 +39,10 @@
             $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password';";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result)) {
+                session_start();
+                $_SESSION['email'] = $email;
+                $_SESSION['logged_in'] = true;
+                
                 header("Location: index.php");
             } else {
                 echo "Incorrect password.";
