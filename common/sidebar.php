@@ -112,7 +112,7 @@
         
         
           <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/add_cloth.php">
               <span class="menu-icon">
                 <i class="mdi mdi-tshirt-crew"></i>
               </span>
