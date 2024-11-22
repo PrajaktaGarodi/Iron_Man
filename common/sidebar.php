@@ -45,7 +45,7 @@
   <body>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="text-decoration-none text-white sidebar-brand brand-logo" href="index.html">
+          <a class="text-decoration-none text-white sidebar-brand brand-logo" href="index.php">
           IRON MAN</a>
         </div>
         <ul class="nav position-fixed">
@@ -57,8 +57,8 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal"><?php $result['role'] ?></h5>
-                  <span><?php $result['email'] ?></span>
+                  <h5 class="mb-0 font-weight-normal"><?php echo $result['role'] ?></h5>
+                  <span><?php echo $result['email'] ?></span>
                 </div>
               </div>
               <!-- <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a> -->
@@ -69,7 +69,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -138,7 +138,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../..//assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.php"><img src="../../..//assets/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -154,7 +154,7 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="../../..//assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php $result['role'] ?></p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><?php echo $result['role'] ?></p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
