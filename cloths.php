@@ -41,65 +41,85 @@
     <div class="main-panel">
       <div class="content-wrapper">
 
-        
+
         <div class="row">
-        <div class="col-md-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-                    <p class="card-description"> Add class <code>.table</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
+          <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">All Cloths</h4>
+                <!-- <p class="card-description"> Add class <code>.table</code> -->
+                </p>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Customer Name</th>
+                        <th>Date Cloths Given</th>
+                        <th>Number of Cloths</th>
+                        <th>Number of Cloths Done</th>
+                        <th>Total Income</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <!-- <td><label class="badge badge-success">Completed</label></td> -->
+                    <!-- <td><label class="badge badge-danger">Pending</label></td> -->
+                    <!-- <td><label class="badge badge-info">Fixed</label></td> -->
+                    <!-- <td><label class="badge badge-warning">In progress</label></td> -->
+                    <!-- <td><label class="badge badge-warning">In progress</label></td> -->
+                    <tbody>
+
+                      <?php
+
+                      $sql = "SELECT * FROM clothes";
+                      $result = mysqli_query($conn, $sql);
+                      if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+
                           <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
-                            <th>Status</th>
+                            <td><?php echo $row['customer_name']; ?></td>
+                            <td><?php echo $row['date']; ?></td>
+                            <td><?php echo $row['cloth_count']; ?></td>
+                            <td><?php echo $row['cloths_done']; ?></td>
+                            <td><?php echo $row['total_income']; ?></td>
+                            <td>
+                              <?php
+                              if ($row['status'] == "Pending") {
+                                echo "<label class='badge badge-warning'>Pending</label>";
+                              } elseif ($row['status'] == "Completed") {
+                                echo "<label class='badge badge-success'>Completed</label>";
+                              } elseif ($row['status'] == "In Progess") {
+                                echo "<label class='badge badge-danger'>In Progress</label>";
+                              }
+                              ?>
+                            </td>
+                            <td>
+                              <a href="#" class="p-1" data-bs-toggle="tooltip" title="Edit" ><i class="mdi mdi-pencil-box-multiple"></i></a>
+                              <a href="#" class="p-1" data-bs-toggle="tooltip" title="Complete" ><i class="text-success mdi mdi-check-all"></i></a>
+                            </td>
                           </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+
+
+                      <?php
+                        }
+                      } else {
+                        echo "<tr><td colspan=6>No Cloths Pending</td></tr>";
+                      }
+
+
+                      ?>
+
+                    </tbody>
+                  </table>
                 </div>
               </div>
-      
+            </div>
+          </div>
+
         </div>
-       
-      
+
+
 
       </div>
       <!-- content-wrapper ends -->

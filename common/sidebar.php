@@ -88,11 +88,11 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="/cloths.php">
               <span class="menu-icon">
                 <i class="mdi mdi-tshirt-v-outline"></i>
               </span>
-              <span class="menu-title">Pending Cloths</span>
+              <span class="menu-title">Cloths Dashboard</span>
               <i class="menu-arrow"></i>
             </a>
           </li>
