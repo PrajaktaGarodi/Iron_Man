@@ -35,6 +35,22 @@
     <!----Include side bar here---->
     <?php
     include('common/sidebar.php');
+    
+    if(isset($_GET['done_id']))
+    {
+        $id = $_GET['done_id'];
+        $query = "UPDATE clothes SET status = 'Done' WHERE id = $id";
+
+        if(mysqli_query($conn, $query))
+        {
+            echo "<script>alert('Cloth marked as done successfully.'); window.location.href='cloths.php';</script>";
+        }
+        else
+        {
+            echo "<script>alert('Failed to mark cloth as done.'); window.location.href='cloths.php';</script>";
+        }
+
+    }
     ?>
 
     <!-- partial -->
@@ -87,16 +103,14 @@
                               <?php
                               if ($row['status'] == "Pending") {
                                 echo "<label class='badge badge-warning'>Pending</label>";
-                              } elseif ($row['status'] == "Completed") {
+                              } elseif ($row['status'] == "Done") {
                                 echo "<label class='badge badge-success'>Completed</label>";
-                              } elseif ($row['status'] == "In Progess") {
-                                echo "<label class='badge badge-danger'>In Progress</label>";
-                              }
+                              } 
                               ?>
                             </td>
                             <td>
-                              <a href="#" class="p-1" data-bs-toggle="tooltip" title="Edit" ><i class="mdi mdi-pencil-box-multiple"></i></a>
-                              <a href="#" class="p-1" data-bs-toggle="tooltip" title="Complete" ><i class="text-success mdi mdi-check-all"></i></a>
+                              
+                              <a href="cloths.php?done_id=<?php echo $row['id'] ?>" class="p-1" data-bs-toggle="tooltip" title="Complete" ><i class="text-success mdi mdi-check-all"></i></a>
                             </td>
                           </tr>
 
